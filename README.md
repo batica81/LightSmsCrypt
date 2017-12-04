@@ -1,0 +1,1 @@
+Android application that sends encrypted SMS messages.

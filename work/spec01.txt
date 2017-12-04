@@ -1,0 +1,23 @@
+aes cbc kao u staroj aplikaciji crypt02
+
+kontakti iz liste
+
+slanje preko sms
+
+exit u opcijama, na home i back
+
+proveriti da li se kesira sifra ili plaintext negde
+
+proveriti base64 sms kompatibilnost
+
+qr opcija 
+
+dizajn
+
+donate opcija
+
+Mozda 
+Spori hash algoritam za salt
+
+
+
