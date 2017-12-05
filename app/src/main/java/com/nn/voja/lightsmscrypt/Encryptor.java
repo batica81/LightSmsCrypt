@@ -5,17 +5,26 @@ package com.nn.voja.lightsmscrypt;
  */
 
 
+
+
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.*;
+
+
 
 /**
  * Created by voja on 2/21/17.
  */
 public class Encryptor {
 
+//    static {
+//        Security.insertProviderAt(new org.spongycastle.jce.provider.BouncyCastleProvider(), 1);
+//    }
+
     public byte [] encrypt(byte[] key, byte[] plaintext, byte[] encIV) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException {
+
 
         Cipher aes = Cipher.getInstance("AES/CBC/PKCS5Padding");
         SecretKeySpec k = new SecretKeySpec(key,"AES");

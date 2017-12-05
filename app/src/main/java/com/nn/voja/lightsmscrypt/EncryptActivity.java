@@ -13,6 +13,7 @@ import java.security.NoSuchAlgorithmException;
 
 import java.security.SecureRandom;
 import java.util.Arrays;
+import android.util.Base64;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -29,10 +30,9 @@ public class EncryptActivity extends Activity {
     }
 
     public void onClickEncrypt(View view){
+
         EditText textView = findViewById(R.id.editText);
-
-        EditText passwordField = findViewById(R.id.editText2);
-
+        EditText passwordField = findViewById(R.id.editText3);
         String password = String.valueOf(passwordField.getText());
 
         MessageDigest md = null;
@@ -60,6 +60,9 @@ public class EncryptActivity extends Activity {
 
         try {
             byte[] tempCypherText = enc.encrypt(hashedPassword, bytePlaintext, encIV);
+            String CypherText = Base64.encodeToString(tempCypherText, Base64.DEFAULT);
+            textView.setText(CypherText);
+
         } catch (NoSuchPaddingException e) {
             e.printStackTrace();
         } catch (NoSuchAlgorithmException e) {
@@ -74,14 +77,11 @@ public class EncryptActivity extends Activity {
             e.printStackTrace();
         }
 
-//        textView.setText(tempCypherText);
-
     }
 
     public void onClickSend(View view) {
 
         EditText textView = findViewById(R.id.editText);
-
         String cypherText = String.valueOf(textView.getText());
 
         Intent intent = new Intent(Intent.ACTION_SEND);
